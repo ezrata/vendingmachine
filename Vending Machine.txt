@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+
+        int PENNIES_PER_DOLLAR = 100;
+        int BILLVALUE = PENNIES_PER_DOLLAR;
+        int quarter, dime, nickel;
+
+        //Prompt user
+        System.out.println("Enter the price of an item (from 25¢ to 100¢, in 5-cent increments.): ");
+        int itemPrice = in.nextInt();
+
+         if (itemPrice >= 25 && itemPrice <= 100 && itemPrice % 5 == 0) {
+
+             int change = PENNIES_PER_DOLLAR - itemPrice;
+             System.out.println("You bought an item for " + itemPrice + " cents and gave me 1 dollar. Amount in return is 0." + change + "$");
+
+             quarter = change/25;
+             change = change - quarter*25;
+             dime = change/10;
+             change = change - dime*10;
+             nickel = change/5;
+             itemPrice = change - nickel*5;
+
+             System.out.println(quarter + " quarter(s) ," + dime + " dime(s) ," + nickel + " nickel(s).");
+             System.out.println("Thank you for your purchase!");
+         }
+            else {
+            System.out.println("Invalid number!");
+            System.exit(0);
+        }
+
+        }
+
+    }
+
+
